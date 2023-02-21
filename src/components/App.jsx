@@ -96,8 +96,7 @@ export class App extends Component {
     const {
       images,
       isLoading,
-      error,
-      searchQuery,
+
       totalHits,
       showModal,
       webformatURL,
