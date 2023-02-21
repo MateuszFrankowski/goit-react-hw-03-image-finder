@@ -21,6 +21,7 @@ export class App extends Component {
     largeImageURL: '',
     webformatURL: '',
   };
+
   handleEsc = event => {
     if (event.key === 'Escape') {
       this.setState({ showModal: false });
@@ -74,17 +75,6 @@ export class App extends Component {
       this.setState({
         isLoading: false,
       });
-      const automaticScroll = () => {
-        console.log(document.querySelector('li').firstElementChild);
-        const { height: cardHeight } = document
-          .querySelector('li')
-          .firstElementChild.getBoundingClientRect();
-        window.scrollBy({
-          top: cardHeight * 2,
-          behavior: 'smooth',
-        });
-      };
-      automaticScroll();
     }
   };
   componentDidUpdate(_prevProps, prevState) {
