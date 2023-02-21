@@ -105,7 +105,7 @@ export class App extends Component {
     return (
       <div className={css.App}>
         <Searchbar onSubmit={this.handleSubmit} />
-        {!isLoading && images.length > 0 && (
+        {images.length > 0 && (
           <ImageGallery images={images} onClick={this.handlemodal} />
         )}
         {!isLoading && images.length < totalHits && (
