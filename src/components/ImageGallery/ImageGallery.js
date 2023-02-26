@@ -5,7 +5,11 @@ import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 
 export class ImageGallery extends PureComponent {
   scrollToBottom = () => {
-    this.messagesEnd.scrollIntoView({ behavior: 'smooth' });
+    window.scrollBy({
+      top: 600,
+      left: 100,
+      behavior: 'smooth',
+    });
   };
 
   componentDidMount() {

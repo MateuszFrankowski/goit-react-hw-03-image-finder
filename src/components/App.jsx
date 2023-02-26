@@ -18,8 +18,7 @@ export class App extends Component {
     error: null,
     searchQuery: '',
     showModal: false,
-    largeImageURL: '',
-    webformatURL: '',
+    activeImageId: 0,
   };
 
   handleEsc = event => {
@@ -42,11 +41,11 @@ export class App extends Component {
     });
   };
   handlemodal = evt => {
-    const { src, alt } = evt.target;
-
-    this.setState({ largeImageURL: src });
-    this.setState({ webformatURL: alt });
+    const { id } = evt.target;
+    console.log(id, ' evt.target');
+    this.setState({ activeImageId: Number(id) });
     this.setState({ showModal: true });
+    console.log(this.state.activeImageId);
   };
   handleLoadMore = () => {
     this.setState(prevState => {
@@ -93,15 +92,11 @@ export class App extends Component {
     document.removeEventListener('keydown', this.handleEsc, false);
   }
   render() {
-    const {
-      images,
-      isLoading,
+    const { images, isLoading, totalHits, showModal, activeImageId } =
+      this.state;
+    const activeImage = images.find(({ id }) => activeImageId === id);
+    const { largeImageURL, webformatURL } = activeImage || {};
 
-      totalHits,
-      showModal,
-      webformatURL,
-      largeImageURL,
-    } = this.state;
     return (
       <div className={css.App}>
         <Searchbar onSubmit={this.handleSubmit} />

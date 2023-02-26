@@ -10,6 +10,7 @@ export class ImageGalleryItem extends PureComponent {
           className={css['ImageGalleryItem-image']}
           src={webformatURL}
           alt={largeImageURL}
+          id={id}
         />
       </li>
     );
